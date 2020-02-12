@@ -1,0 +1,117 @@
+:root{
+	background: black; 
+	/*variables globales de CSS*/
+	--cactus-color: #84e11c; 
+	--sky-color: linear-gradient(180deg, rgba(247,3,3,1) 0%, rgba(255,146,3,1) 49%, rgba(253,255,0,1) 100%);
+	--cloud-color:#b9f3ea;
+	--firstDune-color:#f3bd74;
+	--secondDune-color:#f3ae74;
+	--sun-color:#fcfc02;
+	--sunCircles-color:#f2f27e;
+
+	--animation-speed: 12s;
+}
+
+@font-face{ /*not working >:C */;
+	font-family: 'title';	
+	src: url('../fonts/zoombieland.ttf');
+}
+
+html, body {
+  width: 100%;
+  height: 70%;
+  margin: 0;
+}
+h1{
+	color: white;
+	font-family: 'title';
+	font-size: 80px; 
+	text-align: center;
+}
+
+#title{
+	margin:0;
+	width: 100%;
+	height: 30%;
+}
+#wrapper { /* id de div que contiene todos los elementos del paisaje */
+  width: 100%;
+  height: 400%;
+  position: relative; /* relative: posicionar un elemento respecto al flujo normal de la página, (la posición por defecto) de dicho elemento. */
+}
+
+/* sky */
+#sky {
+    position: absolute; /*Las propiedades top, right, bottom, y  left especifican el desplazamiento desde los bordes del bloque contenedor del elemento. (El bloque contenedor es el ancestro más cercano posicionado). */
+    width: 100%;
+    height: 100%;
+    background: var(--sky-color);
+  }
+
+#sun{
+	fill : var(--sun-color);
+	position: absolute;
+  	transform: translate(50%);
+}
+#sunFirstCircle{
+	fill: var(--sunCircles-color);
+	opacity: 30%;
+	transform: translate(50%);
+}
+#sunSecondCircle{
+	fill: var(--sunCircles-color);
+	opacity: 20%;
+	transform: translate(50%);
+}
+#sunThirdCircle{
+	fill: var(--sunCircles-color);
+	opacity: 10%;
+	transform: translate(50%);
+}
+#clouds{
+	position: absolute;
+	fill: var(--cloud-color);
+	opacity: 40%;
+}
+	#cloud1{		
+		 animation: cloud1-moving var(--animation-speed) infinite;
+		 animation-delay: 02s;
+		 transform: translate(-30%, 30%);
+	}
+	#cloud2{
+		animation: cloud2-moving var(--animation-speed) infinite;
+		transform: translate(-30%, 10%);
+		animation-delay: 01s;
+	}
+	#cloud3{
+		animation: cloud3-moving var(--animation-speed) infinite;
+		transform: translate(-30%, 20%);
+		animation-delay: 0s;
+	}
+	 @keyframes cloud1-moving {
+          from { transform: translate(-30%, 30%);}          
+          to { transform: translate(120%, 30%);}
+        }
+     @keyframes cloud2-moving {
+         from { transform: translate(-30%, 10%);}          
+          to { transform: translate(140%, 10%);}
+        }
+     @keyframes cloud3-moving {
+          from { transform: translate(-30%, 20%);}          
+          to { transform: translate(160%, 20%);};
+        }
+
+
+/* dunes */
+#dunes{
+	position: absolute;
+	height: 100%;
+	width: 100%
+	bottom: 0; /* not working :(*/
+}
+#firstDune{
+	fill :var(--firstDune-color);
+}
+#secondDune{
+	fill :var(--secondDune-color);
+}
